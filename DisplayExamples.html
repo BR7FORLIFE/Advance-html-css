@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comparador de display</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+
+    .controls {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+    }
+
+    .preview {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: #eee;
+      margin-bottom: 1rem;
+    }
+
+    .preview span {
+      font-weight: bold;
+    }
+
+    .inline-block {
+      display: inline-block;
+      background: lightblue;
+    }
+
+    .flex {
+      display: flex;
+      background: lightgreen;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .inline-flex {
+      display: inline-flex;
+      background: lightcoral;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧪 Prueba de <code>display</code></h2>
+
+  <div class="controls">
+    <button onclick="setDisplay('inline-block')">inline-block</button>
+    <button onclick="setDisplay('flex')">flex</button>
+    <button onclick="setDisplay('inline-flex')">inline-flex</button>
+  </div>
+
+  <p>
+    Texto de prueba:
+    <span id="test" class="preview inline-flex">
+      🌙 <span>Modo oscuro</span>
+    </span>
+    seguido de más texto.
+  </p>
+
+  <script>
+    function setDisplay(type) {
+      const el = document.getElementById('test');
+      el.className = 'preview ' + type;
+    }
+  </script>
+
+</body>
+</html>
