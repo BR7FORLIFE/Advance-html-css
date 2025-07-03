@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Filter Effects</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      width: 200px;
+      text-align: center;
+    }
+
+    .box {
+      width: 100%;
+      height: 150px;
+      background-image: url('https://img.freepik.com/vector-gratis/cute-cool-boy-dabbing-pose-dibujos-animados-vector-icono-ilustracion-concepto-icono-moda-personas-aislado_138676-5680.jpg?semt=ais_hybrid&w=740');
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 0.5rem;
+      border-radius: 10px;
+      transition: filter 0.4s ease;
+    }
+
+    .card:hover .box {
+      filter: var(--hover-filter);
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .blur        { --hover-filter: blur(4px); }
+    .brightness  { --hover-filter: brightness(150%); }
+    .contrast    { --hover-filter: contrast(200%); }
+    .grayscale   { --hover-filter: grayscale(100%); }
+    .invert      { --hover-filter: invert(100%); }
+    .opacity     { --hover-filter: opacity(50%); }
+    .saturate    { --hover-filter: saturate(200%); }
+    .sepia       { --hover-filter: sepia(100%); }
+    .hue         { --hover-filter: hue-rotate(90deg); }
+    .shadow      { --hover-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); }
+  </style>
+</head>
+<body>
+
+  <div class="card blur">
+    <div class="box"></div>
+    <div class="label">blur</div>
+  </div>
+
+  <div class="card brightness">
+    <div class="box"></div>
+    <div class="label">brightness</div>
+  </div>
+
+  <div class="card contrast">
+    <div class="box"></div>
+    <div class="label">contrast</div>
+  </div>
+
+  <div class="card grayscale">
+    <div class="box"></div>
+    <div class="label">grayscale</div>
+  </div>
+
+  <div class="card invert">
+    <div class="box"></div>
+    <div class="label">invert</div>
+  </div>
+
+  <div class="card opacity">
+    <div class="box"></div>
+    <div class="label">opacity</div>
+  </div>
+
+  <div class="card saturate">
+    <div class="box"></div>
+    <div class="label">saturate</div>
+  </div>
+
+  <div class="card sepia">
+    <div class="box"></div>
+    <div class="label">sepia</div>
+  </div>
+
+  <div class="card hue">
+    <div class="box"></div>
+    <div class="label">hue-rotate</div>
+  </div>
+
+  <div class="card shadow">
+    <div class="box"></div>
+    <div class="label">drop-shadow</div>
+  </div>
+
+</body>
+</html>
