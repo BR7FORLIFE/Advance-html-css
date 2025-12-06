@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interseccion Observer</title>
+    <style>
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      div {
+        width: 500px;
+        height: 500px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <section class="fade-in">Hola</section>
+    <p class="fade-in">Texto</p>
+    <img class="fade-in" />
+
+    <script>
+      const elementos = document.querySelectorAll(".fade-in");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else if (!entry.isIntersecting) {
+            entry.target.classList.remove("visible");
+          }
+        });
+      });
+
+      elementos.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
