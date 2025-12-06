@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventDelegation</title>
+  </head>
+  <body>
+    <ul></ul>
+  </body>
+
+  <script>
+    const $ul = document.querySelector("ul");
+    const NUMBER_LI = 10;
+
+    for (let i = 0; i < NUMBER_LI; i++) {
+      const $li = document.createElement("li");
+      $li.textContent = "hola";
+      $li.setAttribute("data-control", assignAction());
+      $li.classList.add(i + 1);
+      $ul.appendChild($li);
+    }
+
+    $ul.addEventListener("click", (event) => {
+      if (event.target.tagName === "LI") {
+        const action = event.target.dataset.control;
+
+        if (action == "alert") {
+          const classlist = event.target.classList;
+          alert(`li ejecutado: ${classlist}`);
+        }
+
+        if (action == "color") {
+          document.body.style.backgroundColor = "red";
+        }
+
+        if (action == "delete") {
+          event.target.remove();
+        }
+      }
+    });
+
+    function assignAction() {
+      const actions = ["alert", "color", "delete"];
+      const number = Math.floor(Math.random() * 3);
+      return actions[number];
+    }
+  </script>
+</html>
